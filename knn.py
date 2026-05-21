@@ -90,6 +90,14 @@ class KNN:
 		# zip(strict=True) associe les features deux à deux et lève une erreur
 		# si les deux points n'ont pas le même nombre de dimensions.
 		return sum([(a-b)**2 for a, b in zip(x1, x2, strict=True)])**(1/2)
+	
+	def evaluate(self, X, y):
+		return Modeltools.evaluate(self, X, y)
+
+	def grid_search(self, X_train, y_train, X_val, y_val, param_grid, score_metric="f1"):
+		return Modeltools.grid_search(
+            self.__class__, X_train, y_train, X_val, y_val, param_grid, score_metric
+        )
 
 
 if __name__ == "__main__":
