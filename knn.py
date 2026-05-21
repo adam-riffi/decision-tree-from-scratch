@@ -1,5 +1,6 @@
 from data_loader import load_normalized_data
 from tqdm import tqdm
+from modeltools import Modeltools
 
 # La classe KNN encapsule toute la logique de l'algorithme.
 # Une classe regroupe des données (attributs) et des comportements (méthodes)
@@ -56,7 +57,8 @@ class KNN:
 			distances[index_x] = float(f"{current_distance:.2f}")
 
 		# Étape 2 — Trier les points du plus proche au plus loin.
-		sorted_distances = KNN.sorted_dict_by_values(distances)
+		sorted_distances = Modeltools.sorted_dict_by_values(distances)
+
 
 		# Étape 3 — Garder uniquement les K premiers index (les K plus proches voisins).
 		# [:self.n_neighbors] est un slice : prend les n premiers éléments de la liste.
